@@ -1,6 +1,7 @@
 lazy val root = project
   .in(file("."))
   .enablePlugins(ScalaJSPlugin)
+  .enablePlugins(JSDependenciesPlugin)
   .settings(
     inThisBuild(List(
       organization := "com.lkroll",
@@ -14,7 +15,8 @@ lazy val root = project
       "org.scalatest" %%% "scalatest"      % "3.2.5"    % "test"
     ),
     scalaJSUseMainModuleInitializer := true,
-    mainClass := Some("com.lkroll.testing.MainApp")
+    mainClass := Some("com.lkroll.testing.MainApp"),
+    skip in packageJSDependencies := false
   )
 
 
